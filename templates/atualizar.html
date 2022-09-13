@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<HTML lang='pt-BR'>
+    <head>
+        <meta chaset="UTF-8">
+        <title>{{titulo}}</title>
+    </head>
+    <body>
+        <form action="/atualizar.html" method="POST">
+            <label> Código: </label><br>
+            <input type="number" min="1" name="tCodigo"/>
+            <br><br>
+
+            <label> Campo: </label><br>
+            <select name ="tCampo">
+                <option value="nome">Nome</option>
+                <option value="telefone">Telefone</optione>
+                <option value="endereco>">Endereço</option>
+                <option value="dataDeNascimento">Data de Nascimento</option>
+            </select>
+            <br><br>
+
+            <label> Novo Dado: </label><br>
+            <input type="text" name="tDado" placeholder="2022-02-01"/>
+            <br><br>
+
+            <button type="submit">Atualizar</button>
+            <h6>{{dados}}</h6>
+
+        </form>
+    </body>
+</HTML>
