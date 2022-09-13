@@ -7,6 +7,7 @@ this.telefone = ""
 this.endereco = ""
 this.data = ""
 this.dados = ""
+this.msg = ""
 this.modelo = model()
 
 pessoa = Flask(__name__)
@@ -32,11 +33,18 @@ def consultarTudo():
 
 def atualizarDado():
     if request.method == 'POST':
-        this.codigo = request.form['tNovoCodigo']
+        this.codigo = request.form['tCodigo']
         this.campo = request.form['tCampo']
         this.dado = request.form['tDado']
         this.msg = this.modelo.atualizar(this.codigo, this.campo, this.dado)
     return render_template('atualizar.html', titulo="Atualizar", dados=this.msg)
+
+@pessoa.route('/excluir.html', methods=['GET', 'POST'])
+def excluirDado():
+    if request.method == 'POST' :
+        this.codigo = request.form['tCodigo']
+        this.msg = this.modelo.excluir(this.codigo)
+    return render_template('excluir.html', titulo="Excluir", dados=this.msg)
 
 if __name__ == '__main__':
     pessoa.run(debug=True, port=5000)
